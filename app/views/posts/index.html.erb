@@ -1,0 +1,19 @@
+<div class = "container">
+  <div class = "row d-flex flex-wrap justify-content-between"  style ="padding:30px">
+        <% @posts.each do |post| %>
+          <%# if you pass a instance to link_to it will create the href='/questions/:id' %>
+
+          <div>
+            <div class="card" style= "width:290px; margin-bottom: 1em;">
+              <div class="card-body" >
+                 <%= link_to post do %>  
+                  <h6 class="card-title"> <%= post.title %> </h6>
+                 <% end %>
+                </div>
+                <p class="card-title text-truncate" style ="padding: 10px"> <%= post.body %> </p>
+              </div>
+            </div>
+        <% end %>
+  </div>
+
+  </div>
