@@ -12,6 +12,12 @@
   <body>
    
    <%= render 'shared/navbar' %>
+      
+      <% flash.each do |type, message| %>
+        <div class='bg-<%= type %> p-3 rounded mb-2 shadow-sm'>
+          <%= message %>
+        </div>
+      <% end %>
       <%= yield %>
   
   </body>

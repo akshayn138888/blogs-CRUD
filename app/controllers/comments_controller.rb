@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
         if @comment.save
             redirect_to post_path(@post)
         else
-            # For the list of comments
             @comments = @post.comments.order(created_at: :desc)
             render 'posts/show'
         end
