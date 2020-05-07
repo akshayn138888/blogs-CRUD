@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
         @post = Post.find(params[:post_id])
         @comment = Comment.new comment_params
         @comment.post = @post
+        @comment.user = current_user
         if @comment.save
             redirect_to post_path(@post)
         else
@@ -13,8 +14,12 @@ class CommentsController < ApplicationController
 
     def destroy 
         @comment = Comment.find params[:id]
+       if can?(:crud, @comment) 
         @comment.destroy 
         redirect_to post_path(@comment.post)
+       else
+        head :unauthorized
+       end
     end
 
 
