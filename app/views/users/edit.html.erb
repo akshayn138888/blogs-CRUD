@@ -1,0 +1,28 @@
+
+
+<div class = "container">
+<h1>Change Your Profile here</h1>
+<%= form_with model: current_user, local:true do |f| %>
+  <div class='form-group'>
+    <%= f.label :name %>
+    <%= f.text_field(:name, class: 'form-control')%>
+  </div>
+  <div class='form-group'>
+    <%= f.label :email%>
+    <%= f.text_field(:email, class: 'form-control')%>
+  </div>
+  <div class='form-group'>
+    <%= f.label :old_password %>
+    <%= f.text_field(:old_password, class: 'form-control', cols: 50, rows: 5)%>
+  </div>
+  <div class='form-group'>
+    <%= f.label :password %>
+    <%= f.text_field(:password, class: 'form-control', cols: 50, rows: 5)%>
+  </div>
+  <div class='form-group'>
+    <%= f.label :password_confirmation %>
+    <%= f.text_field(:password_confirmation, class: 'form-control', cols: 50, rows: 5)%>
+  </div>
+  <%= f.submit "Update", class: 'btn btn-outline-primary' %>
+<% end %>
+</div>
