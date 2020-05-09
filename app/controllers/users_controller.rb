@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   
      def new
         if user_signed_in?
+          flash[:warning] = "Can't create new account while signed in"
           redirect_to posts_path
         else 
         @user = User.new
